@@ -31,3 +31,8 @@ CREATE TABLE employees (
 --     comment VARCHAR(255)
 --     employee_id INT NOT NULL REFERENCES employees(id) ON DELETE CASCADE
 -- );
+
+
+
+INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
+    VALUES ('Jack', 'picture', 'bla', 01, 'blabla', '2000-12-12', '2001-12-12, 't', NULL)

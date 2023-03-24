@@ -20,8 +20,9 @@ A [random company] has approached you to build a web application to help them ma
 - Assign monthly performance evaluations to employees (date/month, score, comment)
 - Average performance evaluation scores and display comments (select by month/evaluation?) on each employee's page
 - Display list of employees currently employed by the business (today's date is between start and end of employment?)
-- Display the lowest performing employees (bottom 30%?) in the past 3 months for focused support and coaching
-- Add a way for employees to evaluate their managers?
+- Find employees and/or managers by name/job_description
 
 ### Consider for later
 - Promote an employee to management track
+- Display the lowest performing employees (bottom 30%?) in the past 3 months for focused support and coaching
+- Add a way for employees to evaluate their managers?

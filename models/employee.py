@@ -1,11 +1,24 @@
 class Employee:
-    def __init__(self, name, picture, job_description, contact_details, qol_accommodations, start_date):
+    def __init__(self, name, picture, job_description, contact_details, start_date):
         self.name = name
         self.picture = picture
         self.job_description = job_description
         self.contact_details = contact_details
-        self.qol_accommodations = qol_accommodations
         self.start_date = start_date
+        self.qol_accommodations = None
         self.end_date = None
-        self.manager = None
         self.active = True
+        self.manager = None
+
+    def add_end_date(self, date):
+        self.end_date = date
+
+    def toggle_active(self):
+        if self.end_date:
+            self.active = False
+
+    def update_manager(self, manager):
+        self.manager = manager
+
+    def remove_manager(self):
+        self.manager = None
