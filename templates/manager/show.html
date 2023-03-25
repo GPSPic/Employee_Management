@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <img src="{{manager.picture}}" alt="Picture of {{manager.name}}" width="250" height="300">
+        <p>{{manager.name}}, team manager at Cog in the Machine, inc, started on {{manager.start_date}}</p>
+        <p><a href="/manager/{{ manager.id }}/edit">Edit manager information</a></p>
+    </div>
+    <h3>Current team:</h3>
+    <ul>
+        <li><a href=""></a></li>
+    </ul>
+{% endblock content %}

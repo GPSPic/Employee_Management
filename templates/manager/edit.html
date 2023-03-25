@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Update the information for {{manager.name}}</h3>
+    <form action="/manager/{{manager.id}}", method="post">
+        <ul>
+            <li>
+                <label for=""></label>
+                <input type="" id="" name="" value="" required>
+            </li>
+        </ul>
+    </form>
+{% endblock content %}

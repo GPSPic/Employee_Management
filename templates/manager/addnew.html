@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h4>Add a new face to the management team:</h4>
+    <form action="/manager" method="post">
+        <ul>
+            <li>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name" required maxlength="40"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'" />
+            </li>
+            <li>
+                <label for="picture">Add a picture link</label>
+                <input type="text" id="picture" name="picture" placeholder="Picture Link" required maxlength="255"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Picture Link'" />
+            </li>
+            <li>
+                <label for="start_date">Start Date</label>
+                <input type="date" id="start_date" name="start_date" required />
+            </li>
+        <input type="submit" value="Confirm information">
+        </ul>
+    </form>
+{% endblock content %}
+
+
+<!-- pattern="\d{4}-\d{2}-\d{2}" -->

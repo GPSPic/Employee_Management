@@ -1,13 +1,13 @@
 from flask import Flask, render_template
-# from controllers.<class>_controller import <class>_blueprint
+from controllers.managers_controller import managers_blueprint
 
 app = Flask(__name__) 
 
-# app.register_blueprint(<class>_blueprint)
+app.register_blueprint(managers_blueprint)
 
 @app.route('/')
 def home():
-    return render_template('index.html') 
+    return render_template('index.html', title="Home") 
 
 if __name__ == "__main__": 
     app.run(debug=True)

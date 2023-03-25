@@ -1,8 +1,9 @@
 class Manager:
-    def __init__(self, name, picture, start_date):
+    def __init__(self, name, picture, start_date, id=None):
         self.name = name
         self.picture = picture
         self.start_date = start_date
+        self.id = id
         self.end_date = None
         self.active = True
         self.team_members = []
