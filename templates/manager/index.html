@@ -3,7 +3,7 @@
 {% block content %}
     <h2>Meet our team: </h2>
     <ul>
-        {% for manager in manager_list %}
+        {% for manager in manager_list if manager.active %}
             <li><a href="manager/{{manager.id}}">{{manager.name}}</a></li>
         {% endfor %}
     </ul>
