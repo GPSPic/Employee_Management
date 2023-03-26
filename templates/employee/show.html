@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <img src="{{employee.picture}}" alt="Picture of {{employee.name}}" width="250" height="300">
+        <p>{{employee.name}}, {{employee.job_description}} at Cog in the Machine, inc, started on {{employee.start_date}}</p>
+        <ul>
+            <li>
+                <a href="/employee/{{ employee.id }}/edit">Edit employee information</a>
+            </li>
+            <li>
+                <a href="/employee/{{ employee.id }}/end-date">Process end of employment</a>
+            </li>
+        </ul>
+    </div>
+    <h4>Current Manager:</h4> 
+    {% if employee.manager %} 
+    <strong><a href="/manager/{{employee.manager.id}}">{{employee.manager.name}}</a></strong>
+    {% endif %}
+{% endblock content %}

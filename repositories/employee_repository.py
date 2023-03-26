@@ -1,3 +1,4 @@
+import pdb
 from db.run_sql import run_sql
 import repositories.manager_repository as manager_repository
 from models.employee import Employee
@@ -34,3 +35,27 @@ def select_all():
         
         employees.append(employee)
     return employees
+
+def select_single_employee(id):
+    employee = None
+    sql = "SELECT * FROM employees WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        name = result['name']
+        picture = result['picture']
+        job_description = result['job_description']
+        contact_details = result['contact_details']
+        start_date = result['start_date']
+        manager = manager_repository.select(result['manager_id'])
+        id = result['id']
+        
+        employee = Employee(name, picture, job_description, contact_details, start_date, manager, id)
+        
+        if result['qol_accommodations']:
+            employee.qol_accommodations = result['qol_accommodations']
+        if result['end_date']:
+            employee.end_date = result['end_date']
+            employee.toggle_active()
+    return employee

@@ -19,15 +19,19 @@ import repositories.employee_repository as employee_repository
 # manager1.toggle_active()
 # manager_repository.update(manager1)
 # selected_manager = manager_repository.select(manager1.id)
-# print(selected_manager.end_date)
+# print(selected_manager.end_date)  
 
 # manager_list = manager_repository.select_all()
 # for manager in manager_list:
 #     print(manager.active)
 
-# employee1 = Employee("Tommy Oliver", "picture_placeholder", "Earth Protector", "5559999", "2021-11-11")
-# employee_repository.save(employee1)
+employee1 = Employee("Tommy Oliver", "picture_placeholder", "Earth Protector", "5559999", "2021-11-11")
+employee_repository.save(employee1)
 
-employee_list = employee_repository.select_all()
-for employee in employee_list:
-    print(employee.qol_accommodations)
+# employee_list = employee_repository.select_all()
+# for employee in employee_list:
+#     print(employee.qol_accommodations)
+
+selected_employee = employee_repository.select_single_employee(5)
+print(selected_employee.name)
+print(selected_employee.active)

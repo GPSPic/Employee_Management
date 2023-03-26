@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h4>Add a new face to the team:</h4>
+    <form action="/employee" method="post">
+        <ul>
+            <li>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name" required maxlength="40"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'" />
+            </li>
+            <li>
+                <label for="picture">Add a picture link</label>
+                <input type="text" id="picture" name="picture" placeholder="Picture Link" required maxlength="255"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Picture Link'" />
+            </li>
+            <li>
+                <label for="job_description">Add a job_description link</label>
+                <input type="text" id="job_description" name="job_description" placeholder="Job title" required maxlength="30"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Job title'" />
+            </li>
+            <li>
+                <label for="contact_details">Add a contact number</label>
+                <input type="tel" id="contact_details" name="contact_details" placeholder="Contact Number" required maxlength="15"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact Number'" />
+            </li>
+            <li>
+                <label for="start_date">Start Date</label>
+                <input type="date" id="start_date" name="start_date" required />
+            </li>
+        <input type="submit" value="Confirm information">
+        </ul>
+    </form>
+{% endblock content %}
