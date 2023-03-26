@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Meet our team: </h2>
+    <h2>Meet our leaders: </h2>
     <ul>
-        {% for manager in manager_list if manager.active %}
+        {% for manager in manager_list|sort(attribute='start_date') if manager.active %}
             <li><a href="manager/{{manager.id}}">{{manager.name}}</a></li>
         {% endfor %}
     </ul>
