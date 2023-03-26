@@ -5,9 +5,18 @@
     <form action="/manager/{{manager.id}}", method="post">
         <ul>
             <li>
-                <label for=""></label>
-                <input type="" id="" name="" value="" required>
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="name" value="{{manager.name}}" required maxlength="40">
+            </li>
+            <li>
+                <label for="picture">Picture link: </label>
+                <input type="text" id="picture" name="picture" value="{{manager.picture}}" required maxlength="255">
+            </li>
+            <li>
+                <label for="start_date">Start date: </label>
+                <input type="date" id="start_date" name="start_date" value="{{manager.start_date}}" required>
             </li>
         </ul>
+        <input type="submit" value="Confirm information">
     </form>
 {% endblock content %}

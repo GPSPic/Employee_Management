@@ -28,6 +28,6 @@ def select(id):
     return manager
 
 def update(manager):
-    sql = "UPDATE managers SET (name, picture, start_date, end_date) = (%s, %s, %s, %s) where id = %s" 
-    values = [manager.name, manager.picture, manager.start_date, manager.end_date, manager.id]
+    sql = "UPDATE managers SET (name, picture, start_date, end_date, active) = (%s, %s, %s, %s, %s) where id = %s" 
+    values = [manager.name, manager.picture, manager.start_date, manager.end_date, manager.active, manager.id]
     run_sql(sql, values)

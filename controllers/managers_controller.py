@@ -35,3 +35,19 @@ def add_new_manager():
 def edit_manager_page(id):
     manager = manager_repository.select(id)
     return render_template("manager/edit.html", manager=manager, title="Change info")
+
+@managers_blueprint.route("/manager/<id>", methods=['POST'])
+def update_manager(id):
+    name = request.form['name']
+    picture = request.form['picture']
+    start_date = datetime.datetime.strptime(request.form['start_date'], '%Y-%m-%d')
+    manager = Manager(name, picture, start_date, id)
+    manager_repository.update(manager)
+    return redirect("/manager")
+
+
+
+    # end_date = datetime.datetime.strptime(request.form['end_date'], '%Y-%m-%d')
+    # if end_date:
+    #         manager.end_date = end_date
+    #     manager.toggle_active()
