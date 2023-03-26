@@ -1,15 +1,15 @@
 class Employee:
-    def __init__(self, name, picture, job_description, contact_details, start_date, id=None):
+    def __init__(self, name, picture, job_description, contact_details, start_date, manager=None, id=None):
         self.name = name
         self.picture = picture
         self.job_description = job_description
         self.contact_details = contact_details
         self.start_date = start_date
+        self.manager = manager
         self.id = id
         self.qol_accommodations = None
         self.end_date = None
         self.active = True
-        self.manager = None
     
 
     def add_end_date(self, date):
