@@ -51,6 +51,7 @@ def update_manager(id):
     manager_repository.update(manager)
     return redirect("/manager")
 
+# @managers_blueprint.route("/manager")
 
 # @managers_blueprint.route("/manager/<id>/end-of-employment")
 # def edit_end_of_employment_for_manager_page(id):

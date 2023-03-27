@@ -10,4 +10,11 @@
     <nav>
         <p><a href="/employee/addnew">Add a new employee to the team</a></p>
     </nav>
+    <h4>Previous staff</h4>
+    <p>Below a list of employees who have since left the business: </p>
+    <ul>
+        {% for employee in employee_list|sort(attribute='name') if not employee.active %}
+            <li><a href="employee/{{employee.id}}">{{employee.name}}</a> - Last day: {{employee.end_date}}</li>
+        {% endfor %}
+    </ul>
 {% endblock content %}

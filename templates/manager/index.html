@@ -10,4 +10,11 @@
     <nav>
         <p><a href="/manager/addnew">Add a new manager to the team</a></p>
     </nav>
+    <h4>Previous staff</h4>
+    <p>Below a list of managers who have since left the business: </p>
+    <ul>
+        {% for manager in manager_list|sort(attribute='name') if not manager.active %}
+            <li><a href="manager/{{manager.id}}">{{manager.name}}</a> - Last day: {{manager.end_date}}</li>
+        {% endfor %}
+    </ul>
 {% endblock content %}
