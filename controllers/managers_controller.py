@@ -4,6 +4,7 @@ import datetime
 
 
 import repositories.manager_repository as manager_repository
+import repositories.employee_repository as employee_repository
 from models.manager import Manager
 
 managers_blueprint = Blueprint("managers", __name__)
@@ -16,7 +17,8 @@ def show_managers():
 @managers_blueprint.route("/manager/<id>")
 def show_single_manager(id):
     manager = manager_repository.select(id)
-    return render_template("manager/show.html", manager=manager, title="Grain")
+    employees = employee_repository.select_all()
+    return render_template("manager/show.html", manager=manager, employees=employees, title="Grain")
 
 @managers_blueprint.route("/manager/addnew")
 def new_manager_form():
@@ -51,7 +53,12 @@ def update_manager(id):
     manager_repository.update(manager)
     return redirect("/manager")
 
-# @managers_blueprint.route("/manager")
+@managers_blueprint.route("/manager/<id>/delete", methods=['POST'])
+def delete_manager(id):
+    manager_repository.delete(id)
+    return redirect("/manager")
+
+
 
 # @managers_blueprint.route("/manager/<id>/end-of-employment")
 # def edit_end_of_employment_for_manager_page(id):
@@ -70,4 +77,3 @@ def update_manager(id):
 #         manager.toggle_active()
 #     manager_repository.update(manager)
 #     return redirect("/manager")
-    

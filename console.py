@@ -25,13 +25,13 @@ import repositories.employee_repository as employee_repository
 # for manager in manager_list:
 #     print(manager.active)
 
-employee1 = Employee("Tommy Oliver", "picture_placeholder", "Earth Protector", "5559999", "2021-11-11")
-employee_repository.save(employee1)
+# employee1 = Employee("Tommy Oliver", "picture_placeholder", "Earth Protector", "5559999", "2021-11-11")
+# employee_repository.save(employee1)
 
 # employee_list = employee_repository.select_all()
 # for employee in employee_list:
 #     print(employee.qol_accommodations)
 
-selected_employee = employee_repository.select_single_employee(5)
-print(selected_employee.name)
-print(selected_employee.active)
+# selected_employee = employee_repository.select_single_employee(5)
+# print(selected_employee.name)
+# print(selected_employee.active)

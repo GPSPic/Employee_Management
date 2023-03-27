@@ -9,6 +9,12 @@
                 <a href="/manager/{{ manager.id }}/edit">Edit manager information</a>
         </ul>
     </div>
+    <h3>Current team members: </h3>
+    {% for employee in employees if employee.manager.id == manager.id %}
+        <ul>
+            <li><a href="/employe/{{employee.id}}">{{employee.name}}</a></li>
+        </ul>
+    {% endfor %}
     <h4>Delete employee records</h4>
     <h5>Information retention warning:</h5>
     <p>The company is legally obligated to keep employee pay and tax information for a minimum of 3 years, and employee records for a minimum of six years after the end of employment.</p>

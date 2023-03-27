@@ -32,7 +32,8 @@
                 <div>
                     <label for="manager">Manager:</label>
                     <select name="manager_id" id="manager">
-                        {% for manager in manager_list %}
+                        <option value=' '></option>
+                        {% for manager in manager_list if manager.active %}
                         <option value="{{ manager.id }}" {% if manager.id == employee.manager.id %} selected {% endif %}>
                             {{ manager.name }}
                         </option>

@@ -61,7 +61,10 @@ def update_employee(id):
     employee_repository.update(employee)
     return redirect("/employee")
 
-
+@employees_blueprint.route("/employee/<id>/delete", methods=['POST'])
+def delete_employee(id):
+    employee_repository.delete(id)
+    return redirect("/employee")    
 
 # @employees_blueprint.route("/employee/<id>/end-of-employment")
 # def edit_employee_end_of_employment_page(id):

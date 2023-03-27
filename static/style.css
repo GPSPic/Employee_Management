@@ -1,3 +1,21 @@
-#hidden_form_entry {
-    display: None
+h1 {
+    color: rgb(2, 42, 77);
+    text-align: center;
+    text-decoration: underline;
+}
+
+header {
+    text-align: center;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    -ms-flex-align: center;
+    padding: 10px;
+}
+
+header nav ul li {
+    padding: 10px;
+    list-style: none;
 }

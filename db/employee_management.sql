@@ -34,25 +34,47 @@ CREATE TABLE employees (
 -- );
 
 INSERT INTO managers (name, picture, start_date, end_date, active) 
-VALUES ('Athos', 'picture_placeholder', '2023-01-01', NULL, 't');
+VALUES ('Lord Z', 'picture_placeholder', '2023-01-01', NULL, 't');
 
 INSERT INTO managers (name, picture, start_date, end_date, active) 
-VALUES ('Aramis', 'picture_placeholder', '2022-01-01', NULL, 't');
+VALUES ('Rita Repulsa', 'picture_placeholder', '2022-01-01', NULL, 't');
 
 INSERT INTO managers (name, picture, start_date, end_date, active) 
-VALUES ('Portos', 'picture_placeholder', '2021-01-01', NULL, 't');
+VALUES ('Zordon', 'picture_placeholder', '2021-01-01', NULL, 't');
+
+INSERT INTO managers (name, picture, start_date, end_date, active) 
+VALUES ('King Mondo', 'picture_placeholder', '2021-01-01', '2022-02-02', 'f');
 
 INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
-    VALUES ('Jason Lee Scott', 'picture_placeholder', 'Karate Teacher', 5554357, NULL, '2023-01-01', NULL, 't', NULL);
+VALUES ('Tommy Oliver', 'picture_placeholder', 'Multicolor ranger', 5554357, NULL, '2023-01-01', NULL, 't', 1);
 
 INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
-    VALUES ('Kimberley Hart', 'picture_placeholder', 'Gymnast', 5559999, NULL, '2023-02-01', NULL, 't', NULL);
+VALUES ('Goldar', 'picture_placeholder', 'Gold goon', 5554357, NULL, '2023-01-01', NULL, 't', 2);
 
 INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
-    VALUES ('Billy Cranston', 'picture_placeholder', 'Tech Wiz', 5550001, NULL, '2023-01-20', NULL, 't', NULL);
+VALUES ('Finster', 'picture_placeholder', 'Mad scientist', 5554357, NULL, '2023-01-01', NULL, 't', 2);
 
 INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
-    VALUES ('Trini Kwan', 'picture_placeholder', 'Rollerblader', 5550002, NULL, '2022-12-01', NULL, 't', NULL);
+VALUES ('Alpha 5', 'picture_placeholder', 'Karate Teacher', 5554357, NULL, '2023-01-01', NULL, 't', NULL);
 
 INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
-    VALUES ('Zack Taylor', 'picture_placeholder', 'Hip-hop artist', 5550003, NULL, '2022-11-01', NULL, 't', NULL)
+VALUES ('Jason Lee Scott', 'picture_placeholder', 'Karate Teacher', 5554357, NULL, '2023-01-01', NULL, 't', 3);
+
+INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
+VALUES ('Kimberley Hart', 'picture_placeholder', 'Gymnast', 5559999, NULL, '2023-02-01', NULL, 't', 3);
+
+INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
+VALUES ('Billy Cranston', 'picture_placeholder', 'Tech Wiz', 5550001, NULL, '2023-01-20', NULL, 't', 3);
+
+INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
+VALUES ('Trini Kwan', 'picture_placeholder', 'Rollerblader', 5550002, NULL, '2022-12-01', NULL, 't', 3);
+
+INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
+VALUES ('Zack Taylor', 'picture_placeholder', 'Hip-hop artist', 5550003, NULL, '2022-11-01', NULL, 't', 3);
+
+INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
+VALUES ('Adam Park', 'picture_placeholder', 'Dolphin trainer', 5550003, NULL, '2022-11-01', '2022-12-02', 'f', 3);
+
+INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
+VALUES ('Queen Machina', 'picture_placeholder', 'Stay at home mom', 5550003, NULL, '2021-11-01', '2022-02-02', 'f', 4);
+
