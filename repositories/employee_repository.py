@@ -59,3 +59,23 @@ def select_single_employee(id):
             employee.end_date = result['end_date']
             employee.toggle_active()
     return employee
+
+def update(employee):
+    sql = """UPDATE employees SET (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id) =
+            (%s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"""
+    values = [employee.name, 
+            employee.picture, 
+            employee.job_description, 
+            employee.contact_details, 
+            employee.qol_accommodations, 
+            employee.start_date, 
+            employee.end_date,
+            employee.active,
+            employee.manager.id,
+            employee.id]
+    run_sql(sql, values)
+
+def delete(id):
+    sql = "DELETE FROM employees WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

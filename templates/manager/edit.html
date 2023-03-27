@@ -2,7 +2,7 @@
 
 {% block content %}
     <h3>Update the information for {{manager.name}}</h3>
-    <form action="/manager/{{manager.id}}", method="post">
+    <form action="/manager/{{manager.id}}/edit", method="post">
         <ul>
             <li>
                 <label for="name">Name: </label>
@@ -12,11 +12,9 @@
                 <label for="picture">Picture link: </label>
                 <input type="text" id="picture" name="picture" value="{{manager.picture}}" required maxlength="255">
             </li>
-            <li>
-                <label for="start_date">Start date: </label>
-                <input type="date" id="start_date" name="start_date" value="{{manager.start_date}}" required>
-            </li>
         </ul>
+        <label for="hidden_form_entry"></label>
+        <input type="date" id="hidden_form_entry" name="start_date" value="{{manager.start_date}}" required readonly>
         <input type="submit" value="Confirm information">
     </form>
 {% endblock content %}

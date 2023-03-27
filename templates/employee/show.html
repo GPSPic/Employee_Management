@@ -4,17 +4,21 @@
     <div>
         <img src="{{employee.picture}}" alt="Picture of {{employee.name}}" width="250" height="300">
         <p>{{employee.name}}, {{employee.job_description}} at Cog in the Machine, inc, started on {{employee.start_date}}</p>
+        <p>Current agreed work accommodations: {{employee.qol_accommodations}}</p>
         <ul>
             <li>
                 <a href="/employee/{{ employee.id }}/edit">Edit employee information</a>
             </li>
             <li>
-                <a href="/employee/{{ employee.id }}/end-date">Process end of employment</a>
+                <a href="/employee/{{ employee.id }}/end-of-employment">Process end of employment</a>
             </li>
         </ul>
     </div>
     <h4>Current Manager:</h4> 
     {% if employee.manager %} 
-    <strong><a href="/manager/{{employee.manager.id}}">{{employee.manager.name}}</a></strong>
+    <p><strong><a href="/manager/{{employee.manager.id}}">{{employee.manager.name}}</a></strong></p>
+    {% else %}
+    <p>Not currently assigned. <a href="">Assign?</a></p>
     {% endif %}
+    
 {% endblock content %}

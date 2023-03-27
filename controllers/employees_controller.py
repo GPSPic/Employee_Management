@@ -1,3 +1,4 @@
+import pdb
 from flask import Blueprint, render_template, request, redirect
 import datetime
 
@@ -33,3 +34,29 @@ def add_new_employee():
     employee = Employee(name, picture, job_description, contact_details, start_date)
     employee_repository.save(employee)
     return redirect("/employee")
+
+@employees_blueprint.route("/employee/<id>/edit")
+def edit_employee_page(id):
+    employee = employee_repository.select_single_employee(id)
+    managers = manager_repository.select_all()
+    return render_template("employee/edit.html", employee=employee, manager_list=managers, title="Updaaaaaate")
+
+@employees_blueprint.route("/employee/<id>", methods=['POST'])
+def update_active_employee(id):
+    name = request.form['name']
+    picture = request.form['picture']
+    job_description = request.form['job_description']
+    contact_details = request.form['contact_details']
+    start_date = datetime.datetime.strptime(request.form['start_date'], '%Y-%m-%d')
+    manager_id = request.form['manager_id']
+    manager = manager_repository.select(manager_id)
+    employee = Employee(name, picture, job_description, contact_details, start_date, manager, id)
+    qol_accommodations = request.form['qol_accommodations']
+    if qol_accommodations:
+        employee.qol_accommodations = qol_accommodations
+    employee_repository.update(employee)
+    return redirect("/employee")
+
+    # qol_accommodations = request.form['qol_accommodations']
+    # if qol_accommodations:
+    #     employee.qol_accommodations = qol_accommodations
