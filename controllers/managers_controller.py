@@ -39,30 +39,34 @@ def edit_active_manager_page(id):
 
 
 @managers_blueprint.route("/manager/<id>/edit", methods=['POST'])
-def update_active_manager(id):
+def update_manager(id):
     name = request.form['name']
     picture = request.form['picture']
     start_date = datetime.datetime.strptime(request.form['start_date'], '%Y-%m-%d')
     manager = Manager(name, picture, start_date, id)
-    manager_repository.update(manager)
-    return redirect("/manager")
-
-
-@managers_blueprint.route("/manager/<id>/end-of-employment")
-def edit_end_of_employment_for_manager_page(id):
-    manager = manager_repository.select(id)
-    return render_template("manager/end-of-employment.html", manager=manager)
-
-@managers_blueprint.route("/manager/<id>/end-of-employment", methods=['POST'])
-def update_end_of_employment_for_manager(id):
-    name = request.form['name']
-    picture = request.form['picture']
-    start_date = datetime.datetime.strptime(request.form['start_date'], '%Y-%m-%d')
-    manager = Manager(name, picture, start_date, id)
-    end_date = datetime.datetime.strptime(request.form['end_date'], '%Y-%m-%d')
-    if end_date:
+    if request.form['end_date']:
+        end_date = datetime.datetime.strptime(request.form['end_date'], '%Y-%m-%d')
         manager.end_date = end_date
         manager.toggle_active()
     manager_repository.update(manager)
     return redirect("/manager")
+
+
+# @managers_blueprint.route("/manager/<id>/end-of-employment")
+# def edit_end_of_employment_for_manager_page(id):
+#     manager = manager_repository.select(id)
+#     return render_template("manager/end-of-employment.html", manager=manager)
+
+# @managers_blueprint.route("/manager/<id>/end-of-employment", methods=['POST'])
+# def update_end_of_employment_for_manager(id):
+#     name = request.form['name']
+#     picture = request.form['picture']
+#     start_date = datetime.datetime.strptime(request.form['start_date'], '%Y-%m-%d')
+#     manager = Manager(name, picture, start_date, id)
+#     if request.form['end_date']:
+#         end_date = datetime.datetime.strptime(request.form['end_date'], '%Y-%m-%d')
+#         manager.end_date = end_date
+#         manager.toggle_active()
+#     manager_repository.update(manager)
+#     return redirect("/manager")
     

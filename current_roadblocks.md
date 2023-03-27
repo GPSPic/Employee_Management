@@ -3,4 +3,4 @@ when editing manager in manager/edit.html, the order of managers in index.html c
 partially solved by ordering the for loop in jinja
 
 <!-- templates/employee/edit.html -->
-text area formatting?
+text area formatting when text returns line?

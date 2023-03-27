@@ -13,6 +13,10 @@
                 <input type="text" id="picture" name="picture" value="{{employee.picture}}" required maxlength="255">
             </li>
             <li>
+                <label for="start_date">Start date: </label>
+                <input type="date" id="start_date" name="start_date" value="{{employee.start_date}}" required readonly>
+            </li>
+            <li>
                 <label for="job_description">Job title link: </label>
                 <input type="text" id="job_description" name="job_description" value="{{employee.job_description}}" required maxlength="40">
             </li>
@@ -22,15 +26,7 @@
             </li>
             <li>
                 <label for="qol_accommodations">Agreed work accommodations: </label>
-                <textarea id="qol_accommodations" name="qol_accommodations">
-                    {% if employee.qol_accommodations %}
-                    {{employee.qol_accommodations}}
-                    {% endif %}
-                </textarea> 
-            </li>
-            <li>
-                <label for="start_date">Start date: </label>
-                <input type="date" id="start_date" name="start_date" value="{{employee.start_date}}" required>
+                <textarea id="qol_accommodations" name="qol_accommodations">{% if employee.qol_accommodations %}{{employee.qol_accommodations}}{% endif %}</textarea>
             </li>
             <li>
                 <div>
@@ -43,6 +39,10 @@
                         {% endfor %}
                     </select>
                 </div>
+            </li>
+            <li>
+                <label for="end_date">End date -Warning- Only enter date on the last day of employment: </label>
+                <input type="date" id="end_date" name="end_date">
             </li>
         </ul>
         <input type="submit" value="Confirm information">

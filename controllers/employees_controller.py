@@ -42,7 +42,7 @@ def edit_employee_page(id):
     return render_template("employee/edit.html", employee=employee, manager_list=managers, title="Updaaaaaate")
 
 @employees_blueprint.route("/employee/<id>", methods=['POST'])
-def update_active_employee(id):
+def update_employee(id):
     name = request.form['name']
     picture = request.form['picture']
     job_description = request.form['job_description']
@@ -54,9 +54,15 @@ def update_active_employee(id):
     qol_accommodations = request.form['qol_accommodations']
     if qol_accommodations:
         employee.qol_accommodations = qol_accommodations
+    if request.form['end_date']:
+        end_date = datetime.datetime.strptime(request.form['end_date'], '%Y-%m-%d')
+        employee.end_date = end_date
+        employee.toggle_active()
     employee_repository.update(employee)
     return redirect("/employee")
 
-    # qol_accommodations = request.form['qol_accommodations']
-    # if qol_accommodations:
-    #     employee.qol_accommodations = qol_accommodations
+# @employees_blueprint.route("/employee/<id>/end-of-employment")
+# def edit_employee_end_of_employment_page(id):
+#     employee = employee_repository.select_single_employee(id)
+#     managers = manager_repository.select_all()
+#     return render_template("employee/end-of-employment.html", employee=employee, manager_list=managers, title="Bye Felicia!")
