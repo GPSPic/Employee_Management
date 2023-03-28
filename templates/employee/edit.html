@@ -9,12 +9,21 @@
                 <input type="text" id="name" name="name" value="{{employee.name}}" required maxlength="40">
             </li>
             <li>
-                <label for="picture">Picture link: </label>
-                <input type="text" id="picture" name="picture" value="{{employee.picture}}" required maxlength="255">
+                <div>
+                    <label for="manager">Manager:</label>
+                    <select name="manager_id" id="manager">
+                        <option value=' '></option>
+                        {% for manager in manager_list if manager.active %}
+                        <option value="{{ manager.id }}" {% if manager.id == employee.manager.id %} selected {% endif %}>
+                            {{ manager.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
             </li>
             <li>
-                <label for="start_date">Start date: </label>
-                <input type="date" id="start_date" name="start_date" value="{{employee.start_date}}" required readonly>
+                <label for="picture">Picture link: </label>
+                <input type="text" id="picture" name="picture" value="{{employee.picture}}" required maxlength="255">
             </li>
             <li>
                 <label for="job_description">Job title link: </label>
@@ -29,21 +38,12 @@
                 <textarea id="qol_accommodations" name="qol_accommodations">{% if employee.qol_accommodations %}{{employee.qol_accommodations}}{% endif %}</textarea>
             </li>
             <li>
-                <div>
-                    <label for="manager">Manager:</label>
-                    <select name="manager_id" id="manager">
-                        <option value=' '></option>
-                        {% for manager in manager_list if manager.active %}
-                        <option value="{{ manager.id }}" {% if manager.id == employee.manager.id %} selected {% endif %}>
-                            {{ manager.name }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                </div>
+                <label for="start_date">Start date: </label>
+                <input type="date" id="start_date" name="start_date" value="{{employee.start_date}}" required readonly>
             </li>
             <li>
-                <label for="end_date">End date -Warning- Only enter date on the last day of employment: </label>
-                <input type="date" id="end_date" name="end_date">
+                <label for="end_date">End date <strong>-Warning-</strong> Only enter date on the last day of employment: </label>
+                <input type="date" id="end_date" name="end_date" value="{{employee.end_date}}">
             </li>
         </ul>
         <input type="submit" value="Confirm information">

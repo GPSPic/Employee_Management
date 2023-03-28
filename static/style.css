@@ -1,5 +1,11 @@
+body {
+    margin: 0%;
+    background-color: rgb(244, 244, 228);
+    padding: 2%;
+}
+
 h1 {
-    color: rgb(2, 42, 77);
+    color: rgb(136, 134, 134);
     text-align: center;
     text-decoration: underline;
 }
@@ -8,14 +14,23 @@ header {
     text-align: center;
 }
 
-header nav ul {
+nav ul {
     display: flex;
-    flex-direction: row;
-    -ms-flex-align: center;
+    justify-content: center;
     padding: 10px;
 }
 
 header nav ul li {
     padding: 10px;
     list-style: none;
+    font-size: 1.3rem;
+}
+
+footer li {
+    padding: 10px;
+    list-style: none;
+}
+
+footer {
+    border-top: 2px solid black;
 }

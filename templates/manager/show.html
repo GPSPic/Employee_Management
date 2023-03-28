@@ -2,7 +2,7 @@
 
 {% block content %}
     <div>
-        <img src="{{manager.picture}}" alt="Picture of {{manager.name}}" width="250" height="300">
+        <img src="{{manager.picture}}" alt="Picture of {{manager.name}}">
         <p>{{manager.name}}, team manager at Cog in the Machine, inc, started on {{manager.start_date}}</p>
         <ul>
             <li>
@@ -10,17 +10,17 @@
         </ul>
     </div>
     <h3>Current team members: </h3>
-    {% for employee in employees if employee.manager.id == manager.id %}
+    {% for employee in employees if employee.manager.id == manager.id and employee.active and manager.active %}
         <ul>
-            <li><a href="/employe/{{employee.id}}">{{employee.name}}</a></li>
+            <li><a href="/employee/{{employee.id}}">{{employee.name}}</a></li>
         </ul>
     {% endfor %}
+    {% if not manager.active %}
     <h4>Delete employee records</h4>
     <h5>Information retention warning:</h5>
     <p>The company is legally obligated to keep employee pay and tax information for a minimum of 3 years, and employee records for a minimum of six years after the end of employment.</p>
     <p><strong>Please consult a member of the HR or legal team before processing any information deletion requests.</strong></p>
-    {% if not manager.active %}
-        <form action="/manager/{{manager.id}}/delete", method="post">
+    <form action="/manager/{{ manager.id }}/delete", method="post">
             <input type="submit" value="Confirm deletion">
         </form>
     {% endif %}

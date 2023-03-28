@@ -63,6 +63,10 @@ def select_single_employee(id):
 def update(employee):
     sql = """UPDATE employees SET (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id) =
             (%s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"""
+    if employee.manager:
+        manager_id = employee.manager.id 
+    else:
+        manager_id = None
     values = [employee.name, 
             employee.picture, 
             employee.job_description, 
@@ -71,7 +75,7 @@ def update(employee):
             employee.start_date, 
             employee.end_date,
             employee.active,
-            employee.manager.id,
+            manager_id,
             employee.id]
     run_sql(sql, values)
 
