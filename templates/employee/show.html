@@ -10,6 +10,12 @@
                 <a href="/employee/{{ employee.id }}/edit">Edit employee information</a>
             </li>
         </ul>
+        <h4>Performance Evaluations:</h4>
+        <ul>
+            {% for evaluation in evaluations|sort(attribute='date', reverse=True) if employee.id == evaluation.employee.id %}
+                <li><a href="/evaluation/{{evaluation.id}}">{{evaluation.date}}</a> - {{evaluation.score}}%</li>
+            {% endfor %}
+        </ul>
     </div>
     <h4>Current Manager:</h4> 
     {% if employee.manager %} 

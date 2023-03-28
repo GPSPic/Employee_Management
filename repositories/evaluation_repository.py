@@ -25,10 +25,23 @@ def select_all():
         manager = manager_repository.select(row['manager_id'])
         id = row['id']
 
-        evaluation = Evaluation(score, date, comment, employee.id, manager.id, id)
+        evaluation = Evaluation(score, date, comment, employee, manager, id)
         
         evaluations.append(evaluation)
     return evaluations
 
-
-
+def select(id):
+    evaluation = None
+    sql = "SELECT * FROM evaluations WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    result = results[0]
+    if result:
+        score = result['score']
+        date = result['date']
+        comment = result['comment']
+        employee = employee_repository.select_single_employee(result['employee_id'])
+        manager = manager_repository.select(result['manager_id'])
+        id = result['id']
+        evaluation = Evaluation(score, date, comment, employee, manager, id)
+    return evaluation

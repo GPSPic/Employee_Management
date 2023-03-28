@@ -4,6 +4,7 @@ import datetime
 
 import repositories.employee_repository as employee_repository
 import repositories.manager_repository as manager_repository
+import repositories.evaluation_repository as evaluation_repository
 
 # from models.manager import Manager
 from models.employee import Employee
@@ -18,7 +19,8 @@ def show_employees():
 @employees_blueprint.route("/employee/<id>")
 def show_single_employee(id):
     employee = employee_repository.select_single_employee(id)
-    return render_template("employee/show.html", employee=employee, title="Gear up!")
+    evaluations = evaluation_repository.select_all()
+    return render_template("employee/show.html", employee=employee, evaluations=evaluations, title="Gear up!")
 
 @employees_blueprint.route("/employee/addnew")
 def new_employee_form():

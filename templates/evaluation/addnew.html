@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>Fill out a monthly evaluation:</h4>
+<form action="/evaluation" method="post">
+    <ul>
+        <li>
+            <div>
+                <label for="employee_id">Select Employee:</label>
+                <select name="employee_id_id" id="employee_id" required>
+                    <option value=' '></option>
+                    {% for employee in employee_list|sort(attribute='name') if employee.active %}
+                    <option value="{{ employee.id }}">
+                        {{ employee.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </li>
+        <li>
+            <div>
+                <label for="manager">Reviewed by:</label>
+                <select name="manager_id" id="manager" required>
+                    <option value=' '></option>
+                    {% for manager in manager_list|sort(attribute='name') if manager.active %}
+                    <option value="{{ manager.id }}">
+                        {{ manager.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </li>
+        <li>
+                <label for="score">Score: </label>
+                <input type="number" id="score" score="score" placeholder="Enter score" required max="100" min="0"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter score'" />
+            </li>
+            <li>
+                <label for="date">Date: </label>
+                <input type="date" id="date" name="date" required />
+            </li>
+            <li>
+                <label for="comment">Comments: </label>
+                <textarea id="comment" name="comment" required></textarea>
+            </li>
+        <input type="submit" value="Submit review">
+        </ul>
+    </form>
+{% endblock content %}

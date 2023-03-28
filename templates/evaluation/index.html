@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>List of all evaluations per employee</h3>
+        {% for employee in employees %}
+            <ul>
+                <li>{{employee.name}}</li>
+                {% for evaluation in evaluation_list if employee.id == evaluation.employee.id %}
+                    <ul>
+                        <li><a href="/evaluation/{{evaluation.id}}">{{evaluation.date}}</a> - {{evaluation.score}}%</li>
+                    </ul>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+{% endblock content %}
