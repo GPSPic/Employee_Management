@@ -1,8 +1,16 @@
 import pdb
 from models.manager import Manager
 from models.employee import Employee
+from models.evaluation import Evaluation
 import repositories.manager_repository as manager_repository
 import repositories.employee_repository as employee_repository
+import repositories.evaluation_repository as evaluation_repository
+
+
+employee1 = employee_repository.select_single_employee(1)
+manager1 = manager_repository.select(1)
+evaluation = Evaluation(99, "2022-11-01", "It's good to be evil", employee1, manager1)
+evaluation_repository.save(evaluation)
 
 # pdb.set_trace()
 # manager1 = Manager("D'Artagnan", "picture_placeholer", "2022-12-01")
@@ -35,3 +43,4 @@ import repositories.employee_repository as employee_repository
 # selected_employee = employee_repository.select_single_employee(5)
 # print(selected_employee.name)
 # print(selected_employee.active)
+

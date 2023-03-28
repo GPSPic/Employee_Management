@@ -5,7 +5,7 @@ import datetime
 import repositories.employee_repository as employee_repository
 import repositories.manager_repository as manager_repository
 
-from models.manager import Manager
+# from models.manager import Manager
 from models.employee import Employee
 
 employees_blueprint = Blueprint("employees", __name__)

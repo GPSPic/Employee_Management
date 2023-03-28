@@ -2,7 +2,7 @@ import pdb
 from db.run_sql import run_sql
 import repositories.manager_repository as manager_repository
 from models.employee import Employee
-from models.manager import Manager
+# from models.manager import Manager
 
 def save(employee):
     sql = """INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)

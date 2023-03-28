@@ -8,10 +8,14 @@ h1 {
     color: rgb(136, 134, 134);
     text-align: center;
     text-decoration: underline;
+    border-bottom: 2px solid black;
+    padding: 1%;
+    margin: 2%;
 }
 
 header {
     text-align: center;
+    border-bottom: 2px solid black;
 }
 
 nav ul {
@@ -24,6 +28,8 @@ header nav ul li {
     padding: 10px;
     list-style: none;
     font-size: 1.3rem;
+    padding-right: 2.5%;
+    padding-left: 2.5%;
 }
 
 footer li {
@@ -33,4 +39,10 @@ footer li {
 
 footer {
     border-top: 2px solid black;
+}
+
+.profile-picture img {
+    max-width: 250px;
+    max-height: 300px;
+    image-rendering: auto;
 }
