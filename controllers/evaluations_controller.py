@@ -31,3 +31,21 @@ def add_new_evaluation_page():
     employees = employee_repository.select_all()
     managers = manager_repository.select_all()
     return render_template('evaluation/addnew.html', employee_list=employees, manager_list=managers, title="You have been found wanting")
+
+@evaluations_blueprint.route('/evaluation', methods=['POST'])
+def save_evaluation():
+    score = request.form['score']
+    date = datetime.datetime.strptime(request.form['date'], "%Y-%m-%d")
+    comment = request.form['comment']
+    employee = employee_repository.select_single_employee(request.form['employee_id'])
+    manager = manager_repository.select(request.form['manager_id'])
+    evaluation = Evaluation(score, date, comment, employee, manager)
+    evaluation_repository.save(evaluation)
+    return redirect('/evaluation')
+
+@evaluations_blueprint.route('/evaluation/<id>/edit')
+def edit_evaluation_page(id):
+    evaluation = evaluation_repository.select(id)
+    employees = employee_repository.select_all()
+    managers = manager_repository.select_all()
+    return render_template('evaluation/edit.html', evaluation=evaluation, employees=employees, managers=managers, title="Change my mind!")

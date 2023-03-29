@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h3>Update the information for {{manager.name}}</h3>
+    <h3>Update the information for <a href="/manager/{{manager.id}}">{{manager.name}}</a></h3>
     <form action="/manager/{{manager.id}}/edit", method="post">
         <ul>
             <li>

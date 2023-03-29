@@ -12,6 +12,7 @@
         </ul>
         <h4>Performance Evaluations:</h4>
         <ul>
+            <li><a href="/evaluation/addnew">Fill out a monthly evaluation</a></li>
             {% for evaluation in evaluations|sort(attribute='date', reverse=True) if employee.id == evaluation.employee.id %}
                 <li><a href="/evaluation/{{evaluation.id}}">{{evaluation.date}}</a> - {{evaluation.score}}%</li>
             {% endfor %}

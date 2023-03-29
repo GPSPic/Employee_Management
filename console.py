@@ -9,8 +9,11 @@ import repositories.evaluation_repository as evaluation_repository
 
 employee1 = employee_repository.select_single_employee(1)
 manager1 = manager_repository.select(1)
-evaluation = Evaluation(99, "2022-11-01", "It's good to be evil", employee1, manager1)
-evaluation_repository.save(evaluation)
+evaluation1 = Evaluation(99, "2022-11-01", "It's good to be evil", employee1, manager1)
+evaluation_repository.save(evaluation1)
+
+# evaluation1 = Evaluation(100, "2022-11-01", "blabla", employee1, manager1)
+# evaluation_repository.update(evaluation1)
 
 # pdb.set_trace()
 # manager1 = Manager("D'Artagnan", "picture_placeholer", "2022-12-01")

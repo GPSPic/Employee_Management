@@ -55,7 +55,7 @@ INSERT INTO employees (name, picture, job_description, contact_details, qol_acco
 VALUES ('Finster', 'picture_placeholder', 'Mad scientist', 5554357, NULL, '2023-01-01', NULL, 't', 2);
 
 INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
-VALUES ('Alpha 5', 'picture_placeholder', 'Karate Teacher', 5554357, NULL, '2023-01-01', NULL, 't', NULL);
+VALUES ('Alpha 5', 'picture_placeholder', 'Doomsayer', 5554357, NULL, '2023-01-01', NULL, 't', NULL);
 
 INSERT INTO employees (name, picture, job_description, contact_details, qol_accommodations, start_date, end_date, active, manager_id)
 VALUES ('Jason Lee Scott', 'picture_placeholder', 'Karate Teacher', 5554357, NULL, '2023-01-01', NULL, 't', 3);

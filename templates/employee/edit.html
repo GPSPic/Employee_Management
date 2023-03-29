@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h3>Update the information for {{employee.name}}</h3>
+    <h3>Update the information for <a href="/employee/{{employee.id}}">{{employee.name}}</a></h3>
     <form action="/employee/{{employee.id}}", method="post">
         <ul>
             <li>
@@ -14,7 +14,9 @@
                     <select name="manager_id" id="manager">
                         <option value=' '></option>
                         {% for manager in manager_list if manager.active %}
-                        <option value="{{ manager.id }}" {% if manager.id == employee.manager.id %} selected {% endif %}>
+                        <option value="{{ manager.id }}" 
+                        {% if manager.id == employee.manager.id %} selected {% endif %} 
+                        {% if not employee.manager %} autofocus {% endif %}>
                             {{ manager.name }}
                         </option>
                         {% endfor %}

@@ -45,3 +45,12 @@ def select(id):
         id = result['id']
         evaluation = Evaluation(score, date, comment, employee, manager, id)
     return evaluation
+
+def update(evaluation):
+    sql="UPDATE evaluations SET (score, date, comment, employee_id, manager_id) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    if evaluation.manager:
+        manager_id = evaluation.manager.id
+    else:
+        manager_id = None
+    values = [evaluation.score, evaluation.date, evaluation.comment, evaluation.employee.id, manager_id, evaluation.id]
+    run_sql(sql, values)
