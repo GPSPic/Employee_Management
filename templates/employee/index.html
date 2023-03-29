@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<main>
     <h2>Meet our team: </h2>
-    <ul>
+    <div class="tiles">
         {% for employee in employee_list|sort(attribute='name') if employee.active %}
+        <ul>
+            <li><img src="{{employee.name}}" placeholder="Picture of {{employee.name}}"></li>
             <li><a href="employee/{{employee.id}}">{{employee.name}}</a></li>
+        </ul>
         {% endfor %}
-    </ul>
+    </div>
     <h3>Add to the team: </h3>
     <nav>
         <ul>
@@ -24,4 +28,5 @@
             <li><a href="employee/{{employee.id}}">{{employee.name}}</a> - Last day: {{employee.end_date}}</li>
         {% endfor %}
     </ul>
+</main>
 {% endblock content %}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<main>
 <h4>Fill out a monthly evaluation:</h4>
 <form action="/evaluation" method="post">
     <ul>
@@ -46,4 +47,5 @@
         <input type="submit" value="Submit review">
     </ul>
     </form>
+</main>
 {% endblock content %}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<main>
     <h3>Update the information for <a href="/employee/{{employee.id}}">{{employee.name}}</a></h3>
     <form action="/employee/{{employee.id}}", method="post">
         <ul>
@@ -50,15 +51,6 @@
         </ul>
         <input type="submit" value="Confirm information">
     </form>
+    <br>
+</main>
 {% endblock content %}
-
-<!-- <textarea id="qol_accommodations" name="qol_accommodations">
-    {% if employee.qol_accommodations %}
-        {{employee.qol_accommodations}}
-    {% endif %}
-</textarea>  -->
-
-<!-- <li>
-    <label for="qol_accommodations">Agreed work accommodations: </label>
-    <input type="text" id="qol_accommodations" name="qol_accommodations" value="{{employee.qol_accommodations}}" />
-</li> -->

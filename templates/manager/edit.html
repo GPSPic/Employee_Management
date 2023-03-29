@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<main>
     <h3>Update the information for <a href="/manager/{{manager.id}}">{{manager.name}}</a></h3>
     <form action="/manager/{{manager.id}}/edit", method="post">
         <ul>
@@ -24,4 +25,6 @@
 
         <input type="submit" value="Confirm information">
     </form>
+    <br>
+</main>
 {% endblock content %}

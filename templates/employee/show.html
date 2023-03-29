@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<main>
+    <aside>
+        {% if not employee.active %}
+        <h4>Delete employee records</h4>
+        <h5>Information retention warning:</h5>
+        <p>The company is legally obligated to keep employee pay and tax information for a minimum of 3 years, and employee records for a minimum of six years after the end of employment.</p>
+        <p><strong>Please consult a member of the HR or legal team before processing any information deletion requests.</strong></p>
+            <form action="/employee/{{employee.id}}/delete", method="post">
+                <input type="submit" value="Confirm deletion">
+            </form>
+        {% endif %}
+    </aside>
     <div>
         <img src="{{employee.picture}}" alt="Picture of {{employee.name}}" width="250" height="300">
         <p>{{employee.name}}, {{employee.job_description}} at Cog in the Machine, inc, started on {{employee.start_date}}</p>
@@ -14,7 +26,7 @@
         <ul>
             <li><a href="/evaluation/addnew">Fill out a monthly evaluation</a></li>
             {% for evaluation in evaluations|sort(attribute='date', reverse=True) if employee.id == evaluation.employee.id %}
-                <li><a href="/evaluation/{{evaluation.id}}">{{evaluation.date}}</a> - {{evaluation.score}}%</li>
+                <li><a href="/evaluation/{{evaluation.id}}">{{evaluation.date}}</a> - {{evaluation.score|int}}%</li>
             {% endfor %}
         </ul>
     </div>
@@ -24,13 +36,6 @@
     {% else %}
     <p>Not currently assigned. <a href="/employee/{{ employee.id }}/edit">Assign?</a></p>
     {% endif %}
-    {% if not employee.active %}
-    <h4>Delete employee records</h4>
-    <h5>Information retention warning:</h5>
-    <p>The company is legally obligated to keep employee pay and tax information for a minimum of 3 years, and employee records for a minimum of six years after the end of employment.</p>
-    <p><strong>Please consult a member of the HR or legal team before processing any information deletion requests.</strong></p>
-        <form action="/employee/{{employee.id}}/delete", method="post">
-            <input type="submit" value="Confirm deletion">
-        </form>
-    {% endif %}
+</main>
+
 {% endblock content %}

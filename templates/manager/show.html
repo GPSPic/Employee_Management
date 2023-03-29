@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<main>
+    <aside>
+        {% if not manager.active %}
+        <h4>Delete employee records</h4>
+        <h5>Information retention warning:</h5>
+        <p>The company is legally obligated to keep employee pay and tax information for a minimum of 3 years, and employee records for a minimum of six years after the end of employment.</p>
+        <p><strong>Please consult a member of the HR or legal team before processing any information deletion requests.</strong></p>
+        <form action="/manager/{{ manager.id }}/delete", method="post">
+                <input type="submit" value="Confirm deletion">
+            </form>
+        {% endif %}
+    </aside>
     <div class="profile-picture">
         <img src="{{manager.picture}}" alt="Picture of {{manager.name}}">
         <p>{{manager.name}}, team manager at Cog in the Machine, inc, started on {{manager.start_date}}</p>
@@ -15,15 +27,8 @@
             <li><a href="/employee/{{employee.id}}">{{employee.name}}</a></li>
         </ul>
     {% endfor %}
-    {% if not manager.active %}
-    <h4>Delete employee records</h4>
-    <h5>Information retention warning:</h5>
-    <p>The company is legally obligated to keep employee pay and tax information for a minimum of 3 years, and employee records for a minimum of six years after the end of employment.</p>
-    <p><strong>Please consult a member of the HR or legal team before processing any information deletion requests.</strong></p>
-    <form action="/manager/{{ manager.id }}/delete", method="post">
-            <input type="submit" value="Confirm deletion">
-        </form>
-    {% endif %}
+
+</main>
 {% endblock content %}
 
 <!-- <h3>Current team:</h3>

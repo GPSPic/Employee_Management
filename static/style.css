@@ -70,3 +70,17 @@ footer {
     list-style: disc;
     padding-left: 0px;
 }
+
+.tiles img {
+    max-width: 100px;
+    max-height: 120px;
+    image-rendering: auto;
+}
+
+aside {
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    background-color: rgb(211, 211, 211);
+  }

@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<main>    
     <h2>Meet our leaders: </h2>
-    <ul>
-        {% for manager in manager_list|sort(attribute='start_date') if manager.active %}
+    <div class="tiles">
+    {% for manager in manager_list|sort(attribute='start_date') if manager.active %}
+        <ul>
+            <li><img src="{{manager.picture}}"" placeholder="Picture of {{manager.name}}"></li>
             <li><a href="manager/{{manager.id}}">{{manager.name}}</a></li>
-        {% endfor %}
-    </ul>
+        </ul>
+    {% endfor %}
+    </div>
     <nav>
         <p><a href="/manager/addnew">Add a new manager to the team</a></p>
     </nav>
@@ -17,4 +21,5 @@
             <li><a href="manager/{{manager.id}}">{{manager.name}}</a> - Last day: {{manager.end_date}}</li>
         {% endfor %}
     </ul>
+</main>
 {% endblock content %}

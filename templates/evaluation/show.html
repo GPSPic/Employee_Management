@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<main>
     <p>Monthly evaluation for <strong><a href="/employee/{{evaluation.employee.id}}">{{evaluation.employee.name}}</a></strong>, 
     completed on {{evaluation.date}} - <a href="/evaluation/{{evaluation.id}}/edit">Edit?</a></p>
     <ul>
-        <li>Score: {{evaluation.score}}%</li>
+        <li>Score: {{evaluation.score|int}}%</li>
         <li>Comment: "{{evaluation.comment}}"</li>
         <li>Conducted by: {% if evaluation.manager %}
             <a href="/manager/{{evaluation.manager.id}}">{{evaluation.manager.name}}</a>
@@ -13,4 +14,5 @@
         </li>
     </ul>
     <nav><p><a href="/evaluation">Back to all evaluations</a></p></nav>
+</main>
 {% endblock content %}

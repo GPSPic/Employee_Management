@@ -19,10 +19,7 @@ def show_all_evaluations():
 @evaluations_blueprint.route('/evaluation/<id>')
 def show_single_evalaution(id):
     evaluation = evaluation_repository.select(id)
-    # employees = employee_repository.select_all()
-    # managers = manager_repository.select_all()
     return render_template('/evaluation/show.html', evaluation=evaluation, title="You have been measured")
-# employees=employees, managers=managers, 
 
 @evaluations_blueprint.route('/evaluation/addnew')
 def add_new_evaluation_page():
