@@ -4,7 +4,7 @@
 This app uses Flask, Jinja2, Python3 and PostgreSQL to run. It can be launched via a interface such as VSCode.
 Open your terminal:
 - ```create db [choicename]``` to create the database.
-- ```psql -d employee_management -f db/employee_management.sql``` to create tables and populate with some prepared information.
+- ```psql -d [choicename] -f db/employee_management.sql``` to create tables and populate with some prepared information.
 - ```flask run``` to create the local server.
 - The app will run on ```http://127.0.0.1:4999/``` on your browser.
 
