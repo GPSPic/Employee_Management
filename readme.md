@@ -1,5 +1,15 @@
 ### Employee Management App
 
+### To run the app locally
+This app uses Flask, Jinja2, Python3 and PostgreSQL to run. It can be launched via a interface such as VSCode.
+Open your terminal:
+- ```create db [choicename]``` to create the database.
+- ```psql -d employee_management -f db/employee_management.sql``` to create tables and populate with some prepared information.
+- ```flask run``` to create the local server.
+- The app will run on ```http://127.0.0.1:4999/``` on your browser.
+
+## Brief
+
 A [random company] has approached you to build a web application to help them manage their employees and managers. A manager may look after many employees at a time. An employee is registered with only one manager.
 
 #### MVP
@@ -17,7 +27,7 @@ A [random company] has approached you to build a web application to help them ma
 
 ### Possible Extensions
 
-- Assign monthly performance evaluations to employees (date/month, score, comment)
+- Assign monthly performance evaluations to employees (date/month, score, comment) - Complete
 - Average performance evaluation scores and display comments (select by month/evaluation?) on each employee's page
 - Display list of employees currently employed by the business (today's date is between start and end of employment?)
 - Find employees and/or managers by name/job_description
