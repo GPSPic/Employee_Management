@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     <h3>List of all evaluations per employee</h3>
-        {% for employee in employees %}
+    <div class="tiles">    
+        {% for employee in employees|sort(attribute='name') %}
             <ul>
+                <li><img src="{{employee.picture}}" placeholder="Picture of {{employee.name}}" /></li>
                 <li><a href="/employee/{{employee.id}}">{{employee.name}}</a></li>
                 {% for evaluation in evaluation_list|sort(attribute='date', reverse=True) if employee.id == evaluation.employee.id %}
                     <ul>
@@ -11,4 +13,5 @@
                 {% endfor %}
             </ul>
         {% endfor %}
-{% endblock content %}
+    </div>
+    {% endblock content %}

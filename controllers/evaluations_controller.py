@@ -6,8 +6,6 @@ import repositories.employee_repository as employee_repository
 import repositories.manager_repository as manager_repository
 import repositories.evaluation_repository as evaluation_repository
 
-# from models.manager import Manager
-# from models.employee import Employee
 from models.evaluation import Evaluation
 
 evaluations_blueprint = Blueprint("evaluations", __name__)
@@ -60,3 +58,6 @@ def update_evaluation(id):
     evaluation = Evaluation(score, date, comment, employee, manager, id)
     evaluation_repository.update(evaluation)
     return redirect('/evaluation')
+
+
+

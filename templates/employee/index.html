@@ -3,7 +3,7 @@
 {% block content %}
     <h2>Meet our team: </h2>
     <ul>
-        {% for employee in employee_list|sort(attribute='start_date') if employee.active %}
+        {% for employee in employee_list|sort(attribute='name') if employee.active %}
             <li><a href="employee/{{employee.id}}">{{employee.name}}</a></li>
         {% endfor %}
     </ul>
