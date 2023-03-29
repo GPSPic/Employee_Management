@@ -3,8 +3,8 @@
     <h3>List of all evaluations per employee</h3>
         {% for employee in employees %}
             <ul>
-                <li>{{employee.name}}</li>
-                {% for evaluation in evaluation_list if employee.id == evaluation.employee.id %}
+                <li><a href="/employee/{{employee.id}}">{{employee.name}}</a></li>
+                {% for evaluation in evaluation_list|sort(attribute='date', reverse=True) if employee.id == evaluation.employee.id %}
                     <ul>
                         <li><a href="/evaluation/{{evaluation.id}}">{{evaluation.date}}</a> - {{evaluation.score}}%</li>
                     </ul>

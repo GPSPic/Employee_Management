@@ -49,3 +49,14 @@ def edit_evaluation_page(id):
     employees = employee_repository.select_all()
     managers = manager_repository.select_all()
     return render_template('evaluation/edit.html', evaluation=evaluation, employees=employees, managers=managers, title="Change my mind!")
+
+@evaluations_blueprint.route('/evaluation/<id>', methods=['POST'])
+def update_evaluation(id):
+    score = request.form['score']
+    date = datetime.datetime.strptime(request.form['date'], "%Y-%m-%d")
+    comment = request.form['comment']
+    employee = employee_repository.select_single_employee(request.form['employee_id'])
+    manager = manager_repository.select(request.form['manager_id'])
+    evaluation = Evaluation(score, date, comment, employee, manager, id)
+    evaluation_repository.update(evaluation)
+    return redirect('/evaluation')

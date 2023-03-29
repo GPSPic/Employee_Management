@@ -1,29 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h4>Fill out a monthly evaluation:</h4>
-<form action="/evaluation" method="post">
+<h4>Update an evaluation:</h4>
+<form action="/evaluation/{{evaluation.id}}" method="post">
     <ul>
         <li>
             <div>
-                <label for="employee_id">Select Employee:</label>
-                <select name="employee_id" id="employee_id" required>
-                    <option value=' '></option>
-                    {% for employee in employee_list|sort(attribute='name') if employee.active %}
-                    <option value="{{ employee.id }}">
-                        {{ employee.name }}
+                <label for="employee_id">Employee:</label>
+                <select name="employee_id" id="employee_id" required readonly>
+                    <option value="{{ evaluation.employee.id }}">
+                        {{ evaluation.employee.name }}
                     </option>
-                    {% endfor %}
                 </select>
             </div>
         </li>
         <li>
             <div>
-                <label for="manager">Reviewed by:</label>
+                <label for="manager">Review updated by:</label>
                 <select name="manager_id" id="manager" required>
-                    <option value=' '></option>
-                    {% for manager in manager_list|sort(attribute='name') if manager.active %}
-                    <option value="{{ manager.id }}">
+                    {% for manager in managers|sort(attribute='name') if manager.active %}
+                    <option value="{{ manager.id }}" {% if evaluation.manager.id == manager.id %} selected {% endif %} >
                         {{ manager.name }}
                     </option>
                     {% endfor %}
@@ -31,17 +27,17 @@
             </div>
         </li>
         <li>
-            <label for="score">Score: </label>
-            <input type="number" id="score" name="score" placeholder="0" required max="100" min="0"
+            <label for="score">Updated score: </label>
+            <input type="number" id="score" name="score" required max="100" min="0"
             onfocus="this.placeholder = ''" onblur="this.placeholder = '0'" />
         </li>
         <li>
-            <label for="date">Date: </label>
-            <input type="date" id="date" name="date" required />
+            <label for="date">Original review date: </label>
+            <input type="date" id="date" name="date" value="{{evaluation.date}}" required readonly/>
         </li>
         <li>
             <label for="comment">Comments: </label>
-            <textarea id="comment" name="comment" required></textarea>
+            <textarea id="comment" name="comment" required>{% if evaluation.comment %}{{evaluation.comment}}{% endif %}</textarea>
         </li>
         <input type="submit" value="Submit review">
     </ul>
