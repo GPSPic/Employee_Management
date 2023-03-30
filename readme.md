@@ -1,7 +1,7 @@
 ### Employee Management App
 
 ### To run the app locally
-This app uses Flask, Jinja2, Python3 and PostgreSQL to run. It can be launched via a interface such as VSCode.
+This app uses Flask, Jinja2, Python3 and PostgreSQL to run. It can be launched via an interface such as VSCode.
 Open your terminal:
 - ```create db [choicename]``` to create the database.
 - ```psql -d [choicename] -f db/employee_management.sql``` to create tables and populate with some prepared information.
