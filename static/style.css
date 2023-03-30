@@ -84,3 +84,7 @@ aside {
     float: right;
     background-color: rgb(211, 211, 211);
   }
+
+  .center {
+    text-align: center;
+  }
