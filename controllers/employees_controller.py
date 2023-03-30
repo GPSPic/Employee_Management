@@ -67,9 +67,3 @@ def update_employee(id):
 def delete_employee(id):
     employee_repository.delete(id)
     return redirect("/employee")    
-
-# @employees_blueprint.route("/employee/<id>/end-of-employment")
-# def edit_employee_end_of_employment_page(id):
-#     employee = employee_repository.select_single_employee(id)
-#     managers = manager_repository.select_all()
-#     return render_template("employee/end-of-employment.html", employee=employee, manager_list=managers, title="Bye Felicia!")

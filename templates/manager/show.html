@@ -21,13 +21,13 @@
                 <a href="/manager/{{ manager.id }}/edit">Edit manager information</a>
         </ul>
     </div>
-    <h3>Current team members: </h3>
+    <h5>Current team members: </h5>
     {% for employee in employees if employee.manager.id == manager.id and employee.active and manager.active %}
         <ul>
             <li><a href="/employee/{{employee.id}}">{{employee.name}}</a></li>
         </ul>
     {% endfor %}
-
+    <nav><p><a href="/manager">Back to all managers</a></p></nav>
 </main>
 {% endblock content %}
 

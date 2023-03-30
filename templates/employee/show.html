@@ -30,12 +30,14 @@
             {% endfor %}
         </ul>
     </div>
-    <h4>Current Manager:</h4> 
-    {% if employee.manager %} 
-    <p><strong><a href="/manager/{{employee.manager.id}}">{{employee.manager.name}}</a></strong></p>
-    {% else %}
-    <p>Not currently assigned. <a href="/employee/{{ employee.id }}/edit">Assign?</a></p>
-    {% endif %}
+    <p><strong>Current Manager:</strong> 
+        {% if employee.manager %} 
+        <a href="/manager/{{employee.manager.id}}">{{employee.manager.name}}</a>
+        {% else %}
+        Not currently assigned. <a href="/employee/{{ employee.id }}/edit">Assign?</a>
+        {% endif %}</p>
+    <nav><p><a href="/employee">Back to all team members</a></p></nav>
+
 </main>
 
 {% endblock content %}

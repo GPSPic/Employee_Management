@@ -3,8 +3,6 @@ from db.run_sql import run_sql
 import repositories.manager_repository as manager_repository
 import repositories.employee_repository as employee_repository
 from models.evaluation import Evaluation
-# from models.employee import Employee
-# from models.manager import Manager\
 
 def save(evaluation):
     sql = "INSERT INTO evaluations (score, date, comment, employee_id, manager_id) VALUES (%s, %s, %s, %s, %s) RETURNING id"
