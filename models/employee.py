@@ -15,9 +15,16 @@ class Employee:
     def add_end_date(self, date):
         self.end_date = date
 
+# Toggle active method:
+# IF employee has end_date THEN
+# 	employee is inactive
+# ELSE
+# 	employee is active
     def toggle_active(self):
         if self.end_date:
             self.active = False
+        else:
+            self.active = True
 
     def update_manager(self, manager):
         self.manager = manager

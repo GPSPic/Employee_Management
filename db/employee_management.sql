@@ -101,4 +101,3 @@ VALUES (80, '2022-12-01', 'Can do better at being worse', 3, 2);
 
 INSERT INTO evaluations (score, date, comment, employee_id, manager_id) 
 VALUES (99, '2022-11-01', 'It''s good to be evil', 1, 1);
-

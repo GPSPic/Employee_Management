@@ -23,7 +23,7 @@ class TestEmployee(unittest.TestCase):
 
 # test 8 after adding end_date, employee is inactive
     def test_employee_is_inactive(self):
-        self.employee1.add_end_date("2023-03-24")
+        self.employee1.end_date = "2023-03-24"
         self.employee1.toggle_active()
         self.assertFalse(self.employee1.active)
 
