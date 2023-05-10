@@ -1,7 +1,8 @@
 ### Employee Management App
 
 ### To run the app locally
-This app uses Flask, Jinja2, Python3 and PostgreSQL to run. It can be launched via an interface such as VSCode.
+This app requires Flask, Jinja2, Pyscopg2, Python3 and PostgreSQL to run.
+Recommended software: Postico 2 (database), VScode (view code).
 Open your terminal:
 - ```create db [choicename]``` to create the database.
 - ```psql -d [choicename] -f db/employee_management.sql``` to create tables and populate with some prepared information.
@@ -12,7 +13,7 @@ Open your terminal:
 
 A [random company] has approached you to build a web application to help them manage their employees and managers. A manager may look after many employees at a time. An employee is registered with only one manager.
 
-#### MVP
+#### MVP - Completed
 
 - The company wants to be able to register employees and their business relevant data. Important information for the manager to know is -
   - Name
@@ -27,7 +28,7 @@ A [random company] has approached you to build a web application to help them ma
 
 ### Possible Extensions
 
-- Assign monthly performance evaluations to employees (date/month, score, comment) - Complete
+- Assign monthly performance evaluations to employees (date/month, score, comment) - **Complete**
 - Average performance evaluation scores and display comments (select by month/evaluation?) on each employee's page
 - Display list of employees currently employed by the business (today's date is between start and end of employment?)
 - Find employees and/or managers by name/job_description
